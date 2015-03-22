@@ -3,22 +3,19 @@
  *  All rights reserved.
  *
  *  This source code is licensed under the BSD-style license found in the
- *  LICENSE file in the root directory of this source tree. An additional grant 
+ *  LICENSE file in the root directory of this source tree. An additional grant
  *  of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 'use strict';
 
-setImmediate = jest.genMockFunction();
-clearImmediate = jest.genMockFunction();
+global.setImmediate = jest.genMockFunction();
+global.clearImmediate = jest.genMockFunction();
+global.requestAnimationFrame = jest.genMockFunction();
+global.cancelAnimationFrame = jest.genMockFunction();
 
-requestAnimationFrame = jest.genMockFunction();
-cancelAnimationFrame = jest.genMockFunction();
-
-jest.dontMock('../TimerMixin')
+jest.dontMock('../TimerMixin');
 var TimerMixin = require('../TimerMixin');
-
-var global = window;
 
 describe('TimerMixin', function() {
   var component;
@@ -63,7 +60,7 @@ describe('TimerMixin', function() {
     it('should apply ' + type.clearer + ' correctly', function() {
       var id = 1;
       global[type.setter].mockClear();
-      global[type.setter].mockImpl(function() { return id++ });
+      global[type.setter].mockImpl(function() { return id++; });
       global[type.clearer].mockClear();
       var cb = jest.genMockFunction();
 

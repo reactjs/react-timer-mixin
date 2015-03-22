@@ -15,6 +15,7 @@
     "url": "https://github.com/reactjs/react-timer-mixin.git"
   },
   "devDependencies": {
+    "eslint": "0.9.2",
     "jest-cli": "^0.2.1"
   },
   "scripts": {

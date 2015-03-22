@@ -3,16 +3,16 @@
  *  All rights reserved.
  *
  *  This source code is licensed under the BSD-style license found in the
- *  LICENSE file in the root directory of this source tree. An additional grant 
+ *  LICENSE file in the root directory of this source tree. An additional grant
  *  of patent rights can be found in the PATENTS file in the same directory.
  *
  */
 'use strict';
 
- var setter = function(setter, clearer, array) {
+ var setter = function(_setter, _clearer, array) {
    return function(callback, delta) {
-     var id = setter(function() {
-       clearer.call(this, id);
+     var id = _setter(function() {
+       _clearer.call(this, id);
        callback.apply(this, arguments);
      }.bind(this), delta);
 
@@ -25,7 +25,7 @@
    };
  };
 
- var clearer = function(clearer, array) {
+ var clearer = function(_clearer, array) {
    return function(id) {
      if (this[array]) {
        var index = this[array].indexOf(id);
@@ -33,7 +33,7 @@
          this[array].splice(index, 1);
        }
      }
-     clearer(id);
+     _clearer(id);
    };
  };
 

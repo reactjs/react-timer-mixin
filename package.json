@@ -1,7 +1,7 @@
 {
   "name": "react-timer-mixin",
   "description": "TimerMixin provides timer functions for executing code in the future that are safely cleaned up when the component unmounts",
-  "version": "0.13.0",
+  "version": "0.13.1",
   "keywords": [
     "react",
     "timer",

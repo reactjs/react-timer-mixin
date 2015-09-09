@@ -54,7 +54,7 @@ describe('TimerMixin', function() {
       component.componentWillUnmount();
 
       expect(global[type.clearer]).toBeCalledWith(id);
-      expect(component[type.array]).toEqual([]);
+      expect(component[type.array]).toEqual(null);
     });
 
     it('should apply ' + type.clearer + ' correctly', function() {
@@ -81,7 +81,7 @@ describe('TimerMixin', function() {
       expect(component[type.array]).toEqual([id4]);
       component.componentWillUnmount();
       expect(global[type.clearer]).toBeCalledWith(id4);
-      expect(component[type.array]).toEqual([]);
+      expect(component[type.array]).toEqual(null);
     });
 
     it('should remove bookeeping when callback is called for ' + type.setter, function() {

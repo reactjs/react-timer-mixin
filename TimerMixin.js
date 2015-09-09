@@ -57,10 +57,14 @@ var _requestAnimationFrame = setter(GLOBAL.requestAnimationFrame, _cancelAnimati
 
 var TimerMixin = {
   componentWillUnmount: function() {
-    this[_timeouts] && this[_timeouts].forEach(this.clearTimeout);
-    this[_intervals] && this[_intervals].forEach(this.clearInterval);
-    this[_immediates] && this[_immediates].forEach(this.clearImmediate);
-    this[_rafs] && this[_rafs].forEach(this.cancelAnimationFrame);
+    this[_timeouts] && this[_timeouts].forEach(GLOBAL.clearTimeout);
+    this[_timeouts] = null;
+    this[_intervals] && this[_intervals].forEach(GLOBAL.clearInterval);
+    this[_intervals] = null;
+    this[_immediates] && this[_immediates].forEach(GLOBAL.clearImmediate);
+    this[_immediates] = null;
+    this[_rafs] && this[_rafs].forEach(GLOBAL.cancelAnimationFrame);
+    this[_rafs] = null;
   },
 
   setTimeout: _setTimeout,

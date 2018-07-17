@@ -1,14 +1,14 @@
 {
   "name": "react-timer-mixin",
   "description": "TimerMixin provides timer functions for executing code in the future that are safely cleaned up when the component unmounts",
-  "version": "0.13.3",
+  "version": "0.13.4",
   "keywords": [
     "react",
     "timer",
     "mixin"
   ],
   "bugs": "https://github.com/reactjs/react-timer-mixin/issues",
-  "license": "BSD-3-Clause",
+  "license": "MIT",
   "main": "TimerMixin.js",
   "repository": {
     "type": "git",
